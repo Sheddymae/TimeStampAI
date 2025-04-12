@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EasyTimeTracker</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        table { margin: 20px auto; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 8px; }
+        button { padding: 10px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>EasyTimeTracker</h1>
+    <form method="POST" action="/detect">
+        <button type="submit" name="action" value="signin">Record Sign-In</button>
+        <button type="submit" name="action" value="signout">Record Sign-Out</button>
+    </form>
+    <h2>Timestamps</h2>
+    <table>
+        <tr><th>ID</th><th>Type</th><th>Timestamp</th></tr>
+        {% for ts in timestamps %}
+        <tr><td>{{ ts[0] }}</td><td>{{ ts[1] }}</td><td>{{ ts[2] }}</td></tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
